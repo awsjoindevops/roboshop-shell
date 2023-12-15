@@ -57,7 +57,7 @@ fi
 mkdir -p /app &>> $LOGFILE
 VALIDATE $? "Create APP Directory"
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
 VALIDATE $? "Download application code"
 
 cd /app &>> $LOGFILE
