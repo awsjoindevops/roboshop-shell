@@ -70,7 +70,7 @@ unzip /tmp/user.zip &>> $LOGFILE
 VALIDATE $? "unzip the user user"
 
 cd /app &>> $LOGFILE
-VALIDATE $? "NAVIGATE TO APP dirGectory 2"
+VALIDATE $? "NAVIGATE TO APP dirGectory_1"
 
 npm install &>> $LOGFILE
 VALIDATE $? "Installig NPM"
