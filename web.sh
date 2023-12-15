@@ -52,17 +52,17 @@ VALIDATE $? "start nginx"
 #http://<public-IP>:80
 
 
-rm -rf /usr/share/nginx/html/*
+rm -rf /usr/share/nginx/html/*  &>> $LOGFILE
 VALIDATE $? "remove default website"
 
-curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
+curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip  &>> $LOGFILE
 VALIDATE $? "download web application"
 
 
-cd /usr/share/nginx/html
+cd /usr/share/nginx/html  &>> $LOGFILE
 VALIDATE $? "move to html dir"
 
-unzip /tmp/web.zip
+unzip /tmp/web.zip  &>> $LOGFILE
 VALIDATE $? "unzip web"
 
 
@@ -70,5 +70,5 @@ cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf 
  VALIDATE $? "copy the roshop reverse proxy  config"
 
 
-systemctl restart nginx 
+systemctl restart nginx  &>> $LOGFILE
 VALIDATE $? "restart nginx"
