@@ -39,6 +39,3 @@ figit
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE 
 
 VALIDATE $? "Mongo repo is copied successfully"
-
-#dnf install mongodb-org -y  &>> $LOGFILE
-
