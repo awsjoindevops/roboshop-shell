@@ -67,7 +67,7 @@ cd /app &>> $LOGFILE
 VALIDATE $? "NAVIGATE TO APP directory"
 
 unzip /tmp/user.zip &>> $LOGFILE
-VALIDATE $? "unzip user"
+VALIDATE $? "unzip the user user"
 
 cd /app &>> $LOGFILE
 VALIDATE $? "NAVIGATE TO APP dirGectory 2"
