@@ -48,8 +48,8 @@ VALIDATE $? "Enable MongoDB"
 systemctl start mongod &>> $LOGFILE
 VALIDATE $? "Start mongoDB"
 
-sed -i 's/127.0.0.1/0.0.0.0' /etc/mongod.conf &>> $LOGFILE
-VALIDATE $? "replace the id of 127 mongoDB"
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>> $LOGFILE
+VALIDATE $? "Replace the ip of 127 mongoDB to 0.0..."
 
 systemctl restart mongod &>> $LOGFILE
-VALIDATE $? "restart the mongoDB"
+VALIDATE $? "Restart the MongoDB"
