@@ -57,17 +57,14 @@ fi
 mkdir -p /app &>> $LOGFILE
 VALIDATE $? "Create APP Directory"
 
-
-curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>>LOGFILE
+curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip 
 VALIDATE $? "Download application code"
-
-
 
 cd /app &>> $LOGFILE
 VALIDATE $? "NAVIGATE TO APP directory"
 
-unzip /tmp/user.zip &>> $LOGFILE
-VALIDATE $? "unzip user"
+unzip -o /tmp/cart.zip &>>$LOGFILE
+VALIDATE $? "unzip cart"
 
 cd /app &>> $LOGFILE
 VALIDATE $? "NAVIGATE TO APP dirGectory 2"
@@ -75,35 +72,20 @@ VALIDATE $? "NAVIGATE TO APP dirGectory 2"
 npm install &>> $LOGFILE
 VALIDATE $? "Installig NPM"
 
-cp /home/centos/roboshop-shell/user.service /etc/systemd/system/user.service &>> $LOGFILE
-VALIDATE $? "Copying the user to services"
+
+
+cp /home/centos/roboshop-shell/cart.service /etc/systemd/system/cart.service &>> $LOGFILE
+VALIDATE $? "Copying the cart to services"
 
 
 systemctl daemon-reload &>> $LOGFILE
 VALIDATE $? "daemon reload"
 
-systemctl enable user &>> $LOGFILE
-VALIDATE $? "Enable user"
+systemctl enable cart &>> $LOGFILE
+VALIDATE $? "Enable cart"
 
-systemctl start user &>> $LOGFILE
-VALIDATE $? "start user"
-
-
-cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
-VALIDATE $? "copying mongo repo"
-
-dnf install mongodb-org-shell -y &>> $LOGFILE
-VALIDATE $? "install mongo client"
-
-mongo --host mongodb.awsjoindevops.online </app/schema/user.js &>> $LOGFILE
-VALIDATE $? "LOADING USER data in mongo DB"
-
-
-
-
-
-
-
+systemctl start cart &>> $LOGFILE
+VALIDATE $? "start cart"
 
 
 
