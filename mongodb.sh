@@ -49,6 +49,7 @@ systemctl start mongod &>> $LOGFILE
 VALIDATE $? "Start mongoDB"
 
 sed -i 's/127.0.0.1/0.0.0.0' /etc/mongod.conf &>> $LOGFILE
+VALIDATE $? "replace the id of 127 mongoDB"
 
-
-
+systemctl restart mongod &>> $LOGFILE
+VALIDATE $? "replace the id of 127 mongoDB"
