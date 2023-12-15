@@ -37,5 +37,18 @@ fi
 
 #Step-1
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE 
-
 VALIDATE $? "Mongo repo is copied successfully"
+
+dnf install mongodb-org -y  &>> $LOGFILE
+VALIDATE $? "Installing MongoDB"
+
+systemctl enable mongod &>> $LOGFILE
+VALIDATE $? "Enable MongoDB"
+
+systemctl start mongod &>> $LOGFILE
+VALIDATE $? "Start mongoDB"
+
+sed -i 's/127.0.0.1/0.0.0.0' /etc/mongod.conf &>> $LOGFILE
+
+
+
