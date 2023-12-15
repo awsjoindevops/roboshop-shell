@@ -16,6 +16,7 @@ echo "Script started executing at  $TIMESTAMP"  &>>$LOGFILE
 
 #VALIDATE METHOD
 VALIDATE(){
+
  if [ $1 -ne 0 ]
         then
         echo  -e " $R ERROR :  $2 is -------FAILED $N"
@@ -32,10 +33,9 @@ then
     exit 1  # you can give other than 0
 else
     echo "you are root user"
-figit 
-
+fi
 
 #Step-1
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE 
 
-VALIDATE $? "Mongo repo is copied successfully"
+VALIDATE $? "Mongo repo is copied successfully
