@@ -52,7 +52,7 @@ VALIDATE $? "Install redis"
 
 
 #IMPORTANT STEAM LINE EDITOR FOR THE REPLACEMENT
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis.conf 
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf 
 VALIDATE $? "Replace the remote connection ip of 127 redis to 0.0..."
 
 
