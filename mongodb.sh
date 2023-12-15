@@ -38,4 +38,4 @@ fi
 #Step-1
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE 
 
-VALIDATE $? "Mongo repo is copied successfully
+VALIDATE $? "Mongo repo is copied successfully"
