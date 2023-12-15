@@ -37,7 +37,7 @@ fi
 
 
 
-dnf install python36 gcc python3-devel -y  $LOGFILE
+dnf install python36 gcc python3-devel -y  &>>$LOGFILE
 VALIDATE $? "Install python"
 
 
