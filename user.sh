@@ -66,7 +66,7 @@ VALIDATE $? "Download application code"
 cd /app &>> $LOGFILE
 VALIDATE $? "NAVIGATE TO APP directory"
 
-unzip /tmp/user.zip &>> $LOGFILE
+unzip -o /tmp/user.zip &>> $LOGFILE
 VALIDATE $? "unzip the user user"
 
 cd /app &>> $LOGFILE

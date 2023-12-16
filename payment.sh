@@ -70,7 +70,7 @@ cd /app &>> $LOGFILE
 VALIDATE $? "NAVIGATE TO APP dirGectory 2"
 
 
-pip3.6 install -r requirements.txt
+pip3.6 install -r requirements.txt &>> $LOGFILE
 
 
 cp /home/centos/roboshop-shell/payment.service /etc/systemd/system/payment.service &>> $LOGFILE
