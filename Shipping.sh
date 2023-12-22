@@ -96,6 +96,7 @@ VALIDATE $? "Install mysql"
 mysql -h mysql.awsjoindevops.online -uroot -pRoboShop@1 < /app/schema/shipping.sql 
 
 
+
 systemctl restart shipping &>> $LOGFILE
 VALIDATE $? "Restart Shipping"
 
