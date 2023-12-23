@@ -10,7 +10,7 @@ SG_ID=sg-0af7c8cc8d4bcb618
 INSTANCES=("cart" "catalogue" "mongodb" "mysql" "redis" "rabbitmq" "shipping"
  "payment" "user" "web" "dispatch")
 
- for i in ${INSTANCES[@]}
+ for i in "${INSTANCES[@]}"
  do 
 
 echo "instance name : $i"
@@ -21,5 +21,5 @@ else
 INSTANCES_TYPE="t2.micro"
 fi
 
-aws ec2 run-instances --image-id $AMI --instance-type $INSTANCES_TYPE --security-group-ids $SG_ID --tag-specifications 'ResourceType=instance, Tags=[{Key=Name,Value=$i}]' 
- done
+aws ec2 run-instances --image-id $AMI --instance-type $INSTANCES_TYPE --security-group-ids $SG_ID --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]"
+done
